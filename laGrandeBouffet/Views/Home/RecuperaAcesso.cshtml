@@ -1,0 +1,29 @@
+﻿@{
+    ViewData["Title"] = "Recuperar Acesso";
+}
+<div class="container-fluid d-flex justify-content-center">
+
+    <div class="card m-3 " style="width: 18rem;">
+        <div class="card-body">
+            <h5 class="card-title text-center">@ViewData["Title"]</h5>
+            <form method="POST" action="">
+                <div class="form-group">
+                    <label for="email-login-recuperacao">Email</label>
+                    <input type="email" class="form-control" id="email-login-recuperacao" aria-describedby="loginHelp" placeholder="Digite seu email">
+                    <small id="recuperaLoginHelp" class="form-text text-muted">Em instantes, você receberá um email e poderá criar uma nova senha.</small>
+                </div>
+
+                <div class="d-flex justify-content-center mb-2">
+                    <button type="submit" onclick="mensagemConferirEmail()"class="btn btn-success w-100">Enviar e-mail</button>
+                </div>
+
+
+            </form>
+
+        </div>
+    </div>
+
+</div>
+
+
+<script src="~/js/site.js"></script>

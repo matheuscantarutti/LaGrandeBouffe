@@ -1,0 +1,105 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <RootNamespace>La_Grande_Bouffe</RootNamespace>
+    <CopyRefAssembliesToPublishDirectory>false</CopyRefAssembliesToPublishDirectory>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Models\NewFolder1\**" />
+    <Compile Remove="Models\NewFolder\**" />
+    <Compile Remove="wwwroot\NewFolder\**" />
+    <Content Remove="Models\NewFolder1\**" />
+    <Content Remove="Models\NewFolder\**" />
+    <Content Remove="wwwroot\NewFolder\**" />
+    <EmbeddedResource Remove="Models\NewFolder1\**" />
+    <EmbeddedResource Remove="Models\NewFolder\**" />
+    <EmbeddedResource Remove="wwwroot\NewFolder\**" />
+    <None Remove="Models\NewFolder1\**" />
+    <None Remove="Models\NewFolder\**" />
+    <None Remove="wwwroot\NewFolder\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Include="obj\Debug\netcoreapp3.1\.NETCoreApp,Version=v3.1.AssemblyAttributes.cs" />
+    <Compile Include="obj\Debug\netcoreapp3.1\La Grande Bouffe.AssemblyInfo.cs" />
+    <Compile Include="obj\Debug\netcoreapp3.1\La Grande Bouffe.MvcApplicationPartsAssemblyInfo.cs" />
+    <Compile Include="obj\Debug\netcoreapp3.1\La Grande Bouffe.RazorAssemblyInfo.cs" />
+    <Compile Include="obj\Debug\netcoreapp3.1\La Grande Bouffe.RazorTargetAssemblyInfo.cs" />
+    <Compile Include="obj\Debug\netcoreapp3.1\Razor\Views\Dashboard\Ajuda.cshtml.g.cs" />
+    <Compile Include="obj\Debug\netcoreapp3.1\Razor\Views\Dashboard\Index.cshtml.g.cs" />
+    <Compile Include="obj\Debug\netcoreapp3.1\Razor\Views\Dashboard\Privacy.cshtml.g.cs" />
+    <Compile Include="obj\Debug\netcoreapp3.1\Razor\Views\Dashboard\Section1.cshtml.g.cs" />
+    <Compile Include="obj\Debug\netcoreapp3.1\Razor\Views\Dashboard\Section2.cshtml.g.cs" />
+    <Compile Include="obj\Debug\netcoreapp3.1\Razor\Views\Dashboard\Section3.cshtml.g.cs" />
+    <Compile Include="obj\Debug\netcoreapp3.1\Razor\Views\Dashboard\TermoDeUso.cshtml.g.cs" />
+    <Compile Include="obj\Debug\netcoreapp3.1\Razor\Views\Dashboard\_ViewStart.cshtml.g.cs" />
+    <Compile Include="obj\Debug\netcoreapp3.1\Razor\Views\Home\Cadastro.cshtml.g.cs" />
+    <Compile Include="obj\Debug\netcoreapp3.1\Razor\Views\Home\Index.cshtml.g.cs" />
+    <Compile Include="obj\Debug\netcoreapp3.1\Razor\Views\Home\Login.cshtml.g.cs" />
+    <Compile Include="obj\Debug\netcoreapp3.1\Razor\Views\Home\Privacy.cshtml.g.cs" />
+    <Compile Include="obj\Debug\netcoreapp3.1\Razor\Views\Home\RecuperaAcesso.cshtml.g.cs" />
+    <Compile Include="obj\Debug\netcoreapp3.1\Razor\Views\Home\TermoDeUso.cshtml.g.cs" />
+    <Compile Include="obj\Debug\netcoreapp3.1\Razor\Views\Shared\Error.cshtml.g.cs" />
+    <Compile Include="obj\Debug\netcoreapp3.1\Razor\Views\Shared\_DashboardLayout.cshtml.g.cs" />
+    <Compile Include="obj\Debug\netcoreapp3.1\Razor\Views\Shared\_Layout.cshtml.g.cs" />
+    <Compile Include="obj\Debug\netcoreapp3.1\Razor\Views\Shared\_ValidationScriptsPartial.cshtml.g.cs" />
+    <Compile Include="obj\Debug\netcoreapp3.1\Razor\Views\_ViewImports.cshtml.g.cs" />
+    <Compile Include="obj\Debug\netcoreapp3.1\Razor\Views\_ViewStart.cshtml.g.cs" />
+    <Compile Include="obj\Release\netcoreapp3.1\.NETCoreApp,Version=v3.1.AssemblyAttributes.cs" />
+    <Compile Include="obj\Release\netcoreapp3.1\La Grande Bouffe.AssemblyInfo.cs" />
+    <Compile Include="obj\Release\netcoreapp3.1\La Grande Bouffe.RazorAssemblyInfo.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="obj\Debug\netcoreapp3.1\La Grande Bouffe.csproj.FileListAbsolute.txt" />
+    <Content Include="obj\Debug\netcoreapp3.1\staticwebassets\La Grande Bouffe.StaticWebAssets.xml" />
+    <Content Include="obj\La Grande Bouffe.csproj.nuget.dgspec.json" />
+    <Content Include="obj\project.assets.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="3.1.14" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation" Version="3.1.7" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.14" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.1.14">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Pomelo.EntityFrameworkCore.MySql" Version="3.2.4" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="NewFolder\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="obj\Debug\netcoreapp3.1\La Grande Bouffe.AssemblyInfoInputs.cache" />
+    <None Include="obj\Debug\netcoreapp3.1\La Grande Bouffe.assets.cache" />
+    <None Include="obj\Debug\netcoreapp3.1\La Grande Bouffe.csproj.CopyComplete" />
+    <None Include="obj\Debug\netcoreapp3.1\La Grande Bouffe.csproj.CoreCompileInputs.cache" />
+    <None Include="obj\Debug\netcoreapp3.1\La Grande Bouffe.csprojAssemblyReference.cache" />
+    <None Include="obj\Debug\netcoreapp3.1\La Grande Bouffe.dll" />
+    <None Include="obj\Debug\netcoreapp3.1\La Grande Bouffe.exe" />
+    <None Include="obj\Debug\netcoreapp3.1\La Grande Bouffe.genruntimeconfig.cache" />
+    <None Include="obj\Debug\netcoreapp3.1\La Grande Bouffe.MvcApplicationPartsAssemblyInfo.cache" />
+    <None Include="obj\Debug\netcoreapp3.1\La Grande Bouffe.pdb" />
+    <None Include="obj\Debug\netcoreapp3.1\La Grande Bouffe.RazorAssemblyInfo.cache" />
+    <None Include="obj\Debug\netcoreapp3.1\La Grande Bouffe.RazorCoreGenerate.cache" />
+    <None Include="obj\Debug\netcoreapp3.1\La Grande Bouffe.RazorTargetAssemblyInfo.cache" />
+    <None Include="obj\Debug\netcoreapp3.1\La Grande Bouffe.TagHelpers.input.cache" />
+    <None Include="obj\Debug\netcoreapp3.1\La Grande Bouffe.TagHelpers.output.cache" />
+    <None Include="obj\Debug\netcoreapp3.1\La Grande Bouffe.Views.dll" />
+    <None Include="obj\Debug\netcoreapp3.1\La Grande Bouffe.Views.pdb" />
+    <None Include="obj\Debug\netcoreapp3.1\staticwebassets\La Grande Bouffe.StaticWebAssets.Manifest.cache" />
+    <None Include="obj\La Grande Bouffe.csproj.EntityFrameworkCore.targets" />
+    <None Include="obj\La Grande Bouffe.csproj.nuget.g.props" />
+    <None Include="obj\La Grande Bouffe.csproj.nuget.g.targets" />
+    <None Include="obj\project.nuget.cache" />
+    <None Include="obj\Release\netcoreapp3.1\La Grande Bouffe.AssemblyInfoInputs.cache" />
+    <None Include="obj\Release\netcoreapp3.1\La Grande Bouffe.assets.cache" />
+    <None Include="obj\Release\netcoreapp3.1\La Grande Bouffe.RazorAssemblyInfo.cache" />
+  </ItemGroup>
+
+</Project>

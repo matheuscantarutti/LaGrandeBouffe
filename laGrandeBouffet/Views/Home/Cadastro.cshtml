@@ -1,0 +1,69 @@
+﻿@model laGrandeBouffet.ViewModels.Home.CadastroViewModel;
+
+@{
+    ViewData["Title"] = "Cadastro de novo usuário";
+}
+
+
+
+<div class="container-fluid d-flex justify-content-center">
+
+    <div class="card m-3 " style="width: 20rem;">
+        <div class="card-body">
+            <h5 class="card-title text-center">@ViewData["Title"]</h5>
+            
+            <form method="POST" action="/Home/Cadastro">
+                <div class="form-group">
+                    <label for="email-login">Email</label>
+                    <input type="email" class="form-control" id="email-login" name="emailLogin" aria-describedby="emailHelp" placeholder="Digite seu email" />
+                    @if (Model.ErroEmail != null)
+                    {
+                        <small id="emailHelp" class="form-text text-danger ">@Model.ErroEmail</small>
+                    }
+                </div>
+                <div class="form-group">
+                    <label for="senha-acesso">Senha</label>
+                    <input type="password" class="form-control" id="senha-acesso" name="senhaLogin" aria-describedby="senhaHelp" placeholder="Senha">
+                    @if (Model.ErroSenha != null)
+                    {
+                        <small id="senhaHelp" class="form-text text-danger ">@Model.ErroSenha</small>
+                    }
+
+                    @if (Model.ErroCadastro != null)
+                    {
+                        @foreach (var erro in Model.ErroCadastro)
+                        {
+                            <small id="senhaHelp" class="form-text text-danger">@erro</small> 
+                        }
+                    }
+                </div>
+
+                <div class="form-group">
+                    <label for="senha-acesso">Confirme sua senha</label>
+                    <input type="password" class="form-control" id="confirmaSenhaLogin" name="confirmaSenhaLogin" aria-describedby="confirmaSenhaHelp" placeholder="Senha">
+                    @if (Model.ErroConfirmaSenha != null)
+                    {
+                        <small id="confirmaSenhaHelp" class="form-text text-danger ">@Model.ErroConfirmaSenha</small>
+                    }
+
+                </div>
+
+                <div class="d-flex justify-content-center mb-2">
+                    <button type="submit" class="btn btn-success w-100">Efetivar cadastro</button>
+                </div>
+
+            </form>
+
+        </div>
+    </div>
+
+</div>
+
+<script src="~/js/site.js"></script>
+
+
+
+
+
+
+
