@@ -44,6 +44,7 @@ namespace La_Grande_Bouffe
 
             services.AddTransient<ClienteService>();
             services.AddTransient<CadastroService>();
+            services.AddTransient<LoginService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

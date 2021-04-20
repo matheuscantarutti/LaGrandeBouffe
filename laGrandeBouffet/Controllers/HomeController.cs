@@ -13,6 +13,7 @@ using La_Grande_Bouffe.RequestModels;
 using laGrandeBouffet.ViewModels.Home;
 using System.Text.RegularExpressions;
 using laGrandeBouffet.Models.Acesso;
+using laGrandeBouffet.RequestModels;
 
 namespace La_Grande_Bouffe.Controllers
 {
@@ -20,11 +21,13 @@ namespace La_Grande_Bouffe.Controllers
     {
         private readonly ILogger<HomeController> _logger;
         private readonly CadastroService _cadastroService;
+        private readonly LoginService _loginService;
 
-        public HomeController(ILogger<HomeController> logger, CadastroService cadastroService)
+        public HomeController(ILogger<HomeController> logger, CadastroService cadastroService, LoginService loginService)
         {
             _logger = logger;
             _cadastroService = cadastroService;
+            _loginService = loginService;
         }
 
         public IActionResult Index()
@@ -38,11 +41,48 @@ namespace La_Grande_Bouffe.Controllers
             return View();
         }
 
+        [HttpGet]
         public IActionResult Login()
         {
-            var viewModel = new CadastroViewModel();
-            viewModel.SucessoCadastro = (string)TempData["sucesso-cadastro"];
+            var viewModel = new LoginViewModel();
+            viewModel.ErroEmail = (string)TempData["erro-email-login"];
+            viewModel.ErroSenha = (string)TempData["erro-senha-login"];
+
+            viewModel.ErroLogin = (string)TempData["erro-login"];
+
             return View(viewModel);
+        }
+        
+        [HttpPost]
+        public async Task<RedirectToActionResult> Login(RequestModelLogin request)
+        {
+            if (request.EmailLogin == null)
+            {
+                TempData["erro-email-login"] = "Por favor, informe um e-mail válido.";
+                return RedirectToAction("Login");
+            }
+
+            if (request.SenhaLogin == null)
+            {
+                TempData["erro-senha-login"] = "Por favor, informe sua senha.";
+                return RedirectToAction("Login");
+            }
+
+            try
+            {
+                await _loginService.LoginrUsuario(request.EmailLogin, request.SenhaLogin);
+
+                TempData["sucesso-login"] = "Bem vindo!";
+
+                return RedirectToAction("Index", "Dashboard");
+            }
+            catch (Exception exc)
+            {
+                TempData["erro-login"] = exc.Message;
+                return RedirectToAction("Login");
+            }
+
+
         }
         
         [HttpGet]
@@ -50,8 +90,8 @@ namespace La_Grande_Bouffe.Controllers
         {
             var viewModel = new CadastroViewModel();
 
-            viewModel.ErroEmail = (string)TempData["erro-email"];
-            viewModel.ErroSenha = (string)TempData["erro-senha"];
+            viewModel.ErroEmail = (string)TempData["erro-email-cadastro"];
+            viewModel.ErroSenha = (string)TempData["erro-senha-cadastro"];
             viewModel.ErroConfirmaSenha = (string)TempData["erro-confirmaSenha"];
           
             viewModel.ErroCadastro = (string[])TempData["erro-cadastro"];
@@ -63,28 +103,28 @@ namespace La_Grande_Bouffe.Controllers
         public async Task<RedirectToActionResult> Cadastro(RequestModelCadastro request)
         {
             
-            if (request.EmailLogin == null)
+            if (request.EmailCadastro == null)
             {
-                TempData["erro-email"] = "Por favor, informe um e-mail válido.";
+                TempData["erro-email-cadastro"] = "Por favor, informe um e-mail válido.";
                 return RedirectToAction("Cadastro");
             }
 
-            if(request.SenhaLogin != request.ConfirmaSenhaLogin)
+            if(request.SenhaCadastro != request.ConfirmaSenhaCadastro)
             {
                 TempData["erro-confirmaSenha"] = "Por favor, confirmação e senhas devem ser iguais.";
                 return RedirectToAction("Cadastro");
             }
             
-            if(request.SenhaLogin == null)
+            if(request.SenhaCadastro == null)
             {
-                TempData["erro-senha"] = "Por favor, informe uma senha válida.";
+                TempData["erro-senha-cadastro"] = "Por favor, informe uma senha válida.";
                 return RedirectToAction("Cadastro");
             }
 
 
             try
             {
-                await _cadastroService.CadastrarUsuario(request.EmailLogin, request.SenhaLogin);
+                await _cadastroService.CadastrarUsuario(request.EmailCadastro, request.SenhaCadastro);
 
                 TempData["sucesso-cadastro"] = "Cadastro realizado com sucesso!";
 

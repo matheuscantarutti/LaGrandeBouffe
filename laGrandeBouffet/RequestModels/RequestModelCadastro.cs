@@ -7,8 +7,8 @@ namespace La_Grande_Bouffe.RequestModels
 {
     public class RequestModelCadastro
     { 
-        public string EmailLogin{ get; set; }
-        public string SenhaLogin{ get; set; }
-        public string ConfirmaSenhaLogin { get; set; } 
+        public string EmailCadastro{ get; set; }
+        public string SenhaCadastro{ get; set; }
+        public string ConfirmaSenhaCadastro { get; set; } 
     }
 }

@@ -1,4 +1,4 @@
-﻿@model laGrandeBouffet.ViewModels.Home.CadastroViewModel;
+﻿@model laGrandeBouffet.ViewModels.Home.LoginViewModel;
 
 @{
     ViewData["Title"] = "Acesso dos colaboradores";
@@ -8,25 +8,32 @@
     <div class="card m-3" style="width: 18rem;">
         <div class="card-body">
             <h5 class="card-title text-center">@ViewData["Title"]</h5>
-            @if (Model.SucessoCadastro != null)
+            @if (Model.ErroLogin != null)
             {
-                <p>@Model.SucessoCadastro</p>
+                <p class="text-danger font-weight-bold text-center">@Model.ErroLogin</p>
 
             }
             <form method="POST" action="">
                 <div class="form-group">
                     <label for="email-login">Email</label>
-                    <input type="email" class="form-control" id="email-login" aria-describedby="loginHelp" placeholder="Digite seu email">
-                    <small id="loginHelp" class="form-text text-muted">Ultilize sua conta de email cadastrada para ter acesso.</small>
+                    <input type="email" class="form-control" id="email-login" name="emailLogin" aria-describedby="loginHelp" placeholder="Digite seu email">
+                    @if (Model.ErroEmail != null) 
+                    {
+                        <small id="loginHelp" class="form-text text-danger">@Model.ErroEmail</small>
+                    }
                 </div>
                 <div class="form-group">
                     <label for="senha-acesso">Senha</label>
-                    <input type="password" class="form-control" id="senha-acesso" placeholder="Senha">
+                    <input type="password" class="form-control" id="senha-acesso" name="senhaLogin" aria-describedby="senhaHelp" placeholder="Senha">
+                    @if (Model.ErroSenha != null)
+                    {
+                        <small id="senhaHelp" class="form-text text-danger">@Model.ErroSenha</small>
+                    }
                 </div>
 
 
                 <div class="d-flex justify-content-center mb-2">
-                    <button type="submit" class="btn btn-success w-100" asp-controller="Dashboard" asp-action="Index">Entrar</button>
+                    <button type="submit" class="btn btn-success w-100" >Entrar</button>
                 </div>
 
                 <div class="text-center mb-2">

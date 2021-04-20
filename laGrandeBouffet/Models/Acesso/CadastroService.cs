@@ -10,12 +10,12 @@ namespace laGrandeBouffet.Models.Acesso
     public class CadastroService
     {
         private readonly UserManager<Usuario> _userManager;
-        private readonly SignInManager<Usuario> _signInManager;
+        
 
-        public CadastroService(UserManager<Usuario> userManager, SignInManager<Usuario> signInManager)
+        public CadastroService(UserManager<Usuario> userManager)
         {
             _userManager = userManager;
-            _signInManager = signInManager;
+            
 
         }
 
