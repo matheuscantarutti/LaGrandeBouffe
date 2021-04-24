@@ -22,27 +22,28 @@ namespace La_Grande_Bouffe.Models
         public DateTime LastUpdate { get; set; }
         public ICollection<EventoEntity> Eventos { get; set; }
 
-        public ClienteEntity(TipoCliente pessoa, string nome, string email, string endereco, int cpf, DateTime dataNascimento)
+        public ClienteEntity(TipoCliente pessoa, string nome, string email, string endereco, string obs, int cpf, DateTime dataNascimento)
         {
             Id = new Guid();
-            this.Criacao = DateTime.Now;
-            this.Nome = nome;
-            this.Email = email;
-            this.Endereco = endereco;
-            this.Cpf = cpf;
-            this.DataNasicmento = dataNascimento;
+            Criacao = DateTime.Now;
+            Nome = nome;
+            Email = email;
+            Endereco = endereco;
+            Cpf = cpf;
+            DataNasicmento = dataNascimento;
+            Obs = obs;
 
         }
         
-        public ClienteEntity(TipoCliente pessoa, string nome, string email, string endereco, int cnpj)
+        public ClienteEntity(TipoCliente pessoa, string nome, string email, string endereco, string obs, int cnpj)
         {
             Id = new Guid();
-            this.Criacao = DateTime.Now;
-            this.Nome = nome;
-            this.Email = email;
-            this.Endereco = endereco;
-            this.Cnpj = cnpj;
-            
+            Criacao = DateTime.Now;
+            Nome = nome;
+            Email = email;
+            Endereco = endereco;
+            Cnpj = cnpj;
+            Obs = obs;
 
         }
 
