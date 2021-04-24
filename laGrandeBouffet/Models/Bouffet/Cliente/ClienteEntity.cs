@@ -17,7 +17,7 @@ namespace La_Grande_Bouffe.Models
         public string Email { get; set; }
         public string Endereco { get; set; }
         public string Obs { get; set; }
-        public DateTime DataNasicmento { get; set; }
+        public DateTime DataNascimento { get; set; }
         public DateTime Criacao { get; set; }
         public DateTime LastUpdate { get; set; }
         public ICollection<EventoEntity> Eventos { get; set; }
@@ -30,7 +30,7 @@ namespace La_Grande_Bouffe.Models
             Email = email;
             Endereco = endereco;
             Cpf = cpf;
-            DataNasicmento = dataNascimento;
+            DataNascimento = dataNascimento;
             Obs = obs;
 
         }

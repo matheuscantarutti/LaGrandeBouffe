@@ -25,6 +25,7 @@ namespace Buffet.Models.Buffet.Evento
                                 string localNome, string localEndereco, string obs)
         {
             Id = new Guid();
+            Criacao = DateTime.Now;
             Cliente = Cliente;
             Tipo = tipo;
             Descricao = descricao;
